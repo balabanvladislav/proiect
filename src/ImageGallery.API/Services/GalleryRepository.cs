@@ -55,11 +55,6 @@ namespace ImageGallery.API.Services
         public void DeleteImage(Image image)
         {
             _context.Images.Remove(image);
-
-            // Note: in a real-life scenario, the image itself should also 
-            // be removed from disk.  We don't do this in this demo
-            // scenario, as we refill the DB with image URIs (that require
-            // the actual files as well) for demo purposes.
         }
 
         public bool Save()

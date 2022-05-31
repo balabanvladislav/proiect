@@ -12,6 +12,8 @@ using System.IdentityModel.Tokens.Jwt;
 using Microsoft.IdentityModel.Tokens;
 using IdentityModel;
 using ImageGallery.Client.HttpHandlers;
+using MediatR;
+using System.Reflection;
 
 namespace ImageGallery.Client
 {
@@ -44,6 +46,8 @@ namespace ImageGallery.Client
             });
 
             services.AddHttpContextAccessor();
+
+            services.AddMediatR(Assembly.GetExecutingAssembly());
 
             services.AddTransient<BearerTokenHandler>();
 

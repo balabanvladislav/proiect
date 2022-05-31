@@ -74,7 +74,6 @@ namespace ImageGallery.API.Images.Commands
             imageEntity.Id = Guid.NewGuid();
             imageEntity.OwnerId = _httpContext.User.Claims.FirstOrDefault(c => c.Type == "sub")?.Value;
 
-            // add and save.
             _galleryRepository.AddImage(imageEntity);
 
             _galleryRepository.Save();

@@ -13,6 +13,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using System;
+using MediatR;
+using System.Reflection;
 
 namespace ImageGallery.API
 {
@@ -61,6 +63,8 @@ namespace ImageGallery.API
 
             // register the repository
             services.AddScoped<IGalleryRepository, GalleryRepository>();
+
+            services.AddMediatR(Assembly.GetExecutingAssembly());
 
             // register AutoMapper-related services
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
